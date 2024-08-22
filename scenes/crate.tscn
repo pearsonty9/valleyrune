@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx2s054n3bc4e"]
+
+[ext_resource type="Script" path="res://scripts/interact.gd" id="1_cs1pm"]
+[ext_resource type="Texture2D" uid="uid://dmfewnaflgrcy" path="res://assets/objects/crate.png" id="1_nqk2f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jhow"]
+size = Vector2(16, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ptthf"]
+radius = 12.0416
+
+[node name="Create" type="StaticBody2D"]
+script = ExtResource("1_cs1pm")
+resource_name = "gold piece"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_4jhow")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_nqk2f")
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Area2D" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_ptthf")

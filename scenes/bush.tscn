@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5b4dwx3hv3n1"]
+
+[ext_resource type="Texture2D" uid="uid://hi6gdxxbcyi3" path="res://assets/objects/bush.png" id="1_bbq4y"]
+[ext_resource type="Script" path="res://scripts/interact.gd" id="1_hhoti"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4jhow"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lepm"]
+size = Vector2(25, 42)
+
+[node name="Bush" type="StaticBody2D"]
+script = ExtResource("1_hhoti")
+resource_name = "twig"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_4jhow")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bbq4y")
+region_rect = Rect2(0, 80, 48, 64)
+
+[node name="Area2D" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.98023e-06, 7.5)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_0lepm")
